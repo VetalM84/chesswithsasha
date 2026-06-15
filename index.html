@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- SEO Meta Tags -->
+  <title>ChessWithSasha - Elite Chess Coaching & Clubs in Somerset</title>
+  <meta name="description"
+    content="Discover professional chess coaching and junior/after-school chess clubs run by FIDE Arena Grand Master Oleksandr Matlak (Sasha) in Wells, Frome, and across Somerset. Book a session today.">
+  <meta name="keywords"
+    content="chess coach somerset, chess tutor wells, junior chess club frome, sasha matlak chess, chess training camps uk, learn chess somerset">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="ChessWithSasha - Elite Chess Coaching in Somerset">
+  <meta property="og:description"
+    content="Learn chess strategy and tactics from FIDE Arena Grand Master Oleksandr Matlak (Sasha). Individual coaching, junior clubs, and training camps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chesswithsasha.com">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#253143",
+            "error-container": "#93000a",
+            "secondary-fixed": "#ffe088",
+            "surface-variant": "#f1f3f4",
+            "secondary-container": "#af8d11",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#1a1c1c",
+            "primary-container": "#f1f3f4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#e0e7f1",
+            "surface": "#f8f9fa",
+            "surface-tint": "#5d5f5f",
+            "outline-variant": "#c4c7c7",
+            "on-primary-container": "#454747",
+            "tertiary-fixed": "#253143",
+            "primary-fixed-dim": "#454747",
+            "outline": "#747778",
+            "on-error": "#ffffff",
+            "on-background": "#1a1c1c",
+            "surface-container-high": "#e8eaed",
+            "on-tertiary-fixed": "#ffffff",
+            "secondary-fixed-dim": "#af8d11",
+            "tertiary": "#3b475a",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f1f3f4",
+            "on-secondary-container": "#241a00",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#3b475a",
+            "on-primary-fixed": "#ffffff",
+            "error": "#ba1a1a",
+            "on-surface": "#1a1c1c",
+            "on-secondary-fixed-variant": "#574500",
+            "background": "#f8f9fa",
+            "surface-bright": "#ffffff",
+            "surface-container-highest": "#dee1e6",
+            "on-primary-fixed-variant": "#454747",
+            "on-tertiary-container": "#253143",
+            "on-surface-variant": "#444748",
+            "inverse-surface": "#2f3131",
+            "secondary": "#745b00",
+            "on-tertiary-fixed-variant": "#3b475a",
+            "inverse-primary": "#c6c6c7",
+            "on-secondary-fixed": "#241a00",
+            "surface-container": "#f1f3f4",
+            "primary": "#5d5f5f",
+            "surface-container-low": "#f8f9fa",
+            "surface-dim": "#dee1e6",
+            "accent-gold": "#c5a059",
+            "surface-ebony": "#1a1c1c",
+            "muted-silver": "#747778",
+            "pure-white": "#ffffff",
+            "slate-depth": "#2d394b"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-mobile": "16px",
+            "margin-desktop": "48px",
+            "gutter": "24px",
+            "container-max": "1200px",
+            "base": "8px"
+          },
+          "fontFamily": {
+            "headline-md": ["Manrope"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-caps": ["Inter"],
+            "display-lg-mobile": ["Manrope"],
+            "display-lg": ["Manrope"],
+            "headline-sm": ["Manrope"]
+          },
+          "fontSize": {
+            "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+
+<body
+  class="bg-background text-on-surface font-body-md selection:bg-accent-gold selection:text-white min-h-screen flex flex-col">
+
+  <!-- TopNavBar - Dark Theme Reverted -->
+  <header>
+    <nav class="fixed top-0 w-full bg-surface-ebony/90 backdrop-blur-md z-50 border-b border-white/10" id="main-nav">
+      <div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto relative">
+        <a class="text-headline-sm font-headline-sm font-bold text-accent-gold flex items-center gap-2" href="#home"
+          id="nav-brand">ChessWithSasha</a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden xl:flex gap-6 items-center" id="nav-desktop-menu">
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#home">Home</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#about">About me</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#sessions">In-person sessions</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#clubs">Chess Clubs</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#training">Camps</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#gallery">Gallery</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
+            href="#contacts">Contacts</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <a href="#booking"
+            class="hidden sm:inline-block px-6 py-2 bg-accent-gold text-surface-ebony font-bold hover:bg-opacity-90 transition-all duration-200 uppercase text-label-caps tracking-widest text-center"
+            id="nav-join-btn">
+            Book Lesson
+          </a>
+
+          <!-- Mobile Hamburger Button -->
+          <button id="mobile-menu-btn"
+            class="xl:hidden text-pure-white hover:text-accent-gold focus:outline-none flex items-center"
+            aria-expanded="false" aria-label="Toggle navigation menu">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </button>
+        </div>
+
+        <!-- Mobile Nav Links Panel -->
+        <div id="nav-links-container"
+          class="hidden xl:hidden flex-col absolute top-full left-0 w-full bg-surface-ebony/95 border-b border-white/10 px-margin-desktop py-6 gap-4">
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#home">Home</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#about">About me</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#sessions">In-person
+            sessions</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#clubs">Chess
+            Clubs</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#training">Camps</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md"
+            href="#gallery">Gallery</a>
+          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md"
+            href="#contacts">Contacts</a>
+          <a href="#booking"
+            class="w-full mt-2 py-3 bg-accent-gold text-surface-ebony font-bold hover:bg-opacity-90 transition-all uppercase text-label-caps tracking-widest text-center block">
+            Book Lesson
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section - Dark Theme Reverted -->
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden" id="home">
+      <div class="absolute inset-0">
+        <img alt="Premium Chess Set Background" class="w-full h-full object-cover" src="hero_bg.jpg">
+        <!-- Dark Overlay for Readability -->
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-surface-ebony/80 via-surface-ebony/40 to-surface-ebony/90 md:bg-gradient-to-r md:from-surface-ebony/90 md:via-surface-ebony/40 md:to-transparent">
+        </div>
+      </div>
+      <div
+        class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-left scroll-reveal active">
+          <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Grandmaster Status
+            Awaits</span>
+          <h1 class="font-display-lg text-display-lg text-pure-white mb-6 leading-tight">Private 1-on-1 Chess
+            <br><span class="text-accent-gold">Classes in Wells</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-pure-white/80 mb-8 max-w-lg drop-shadow-md">
+            Give your child the right foundation in chess. Apply for chess classes with coach Sasha
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#booking"
+              class="px-8 py-4 bg-accent-gold text-surface-ebony font-bold hover:scale-105 transition-transform shadow-lg text-center uppercase tracking-wider text-xs">START
+              YOUR JOURNEY</a>
+            <a href="#clubs"
+              class="px-8 py-4 border border-pure-white/30 text-pure-white hover:bg-pure-white/10 transition-colors backdrop-blur-sm text-center uppercase tracking-wider text-xs">VIEW
+              SCHEDULE</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-accent-gold animate-bounce">
+        <span class="material-symbols-outlined text-4xl">expand_more</span>
+      </div>
+    </section>
+
+    <!-- About Sasha Section - Light Mode -->
+    <section class="py-24 bg-surface text-on-surface scroll-reveal" id="about">
+      <div class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="aspect-[4/5] bg-white border border-outline-variant/30 shadow-xl relative overflow-hidden group">
+            <img alt="Oleksandr Matlak (Sasha)"
+              class="w-full h-full object-cover transition-all duration-700 scale-100 hover:scale-105"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7jU09oGc2yWH-H_brNTJpkbbNhanceudxeiQm2PsZDcZnZRfVZ2N5RrrtBT6PhctRZ_S5EVltQ_a4EKJylusIbkg5kYLGtZTPH67LczZGJCty0nOfgvhY6UE8ZdepzZIBMmnBMza6jlQLh4Udcnv9GA21L88vaf6h2--wKpM-DrVRqhci7gu_9LJczUNcx6_ca7sJ_6oM-omHg7o_7fCYOrlFfS0VRHdgtEFb6-_dOV9tpTErWWSWMhCDqV_nd3PCKiWNvS5IAJX8Xw">
+            <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-white/90 to-transparent">
+              <div class="h-px w-12 bg-accent-gold mb-4"></div>
+              <p class="font-label-caps text-accent-gold tracking-widest text-xs uppercase">Founder &amp; Head Coach</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-4 -right-4 w-24 h-24 border-r-2 border-b-2 border-accent-gold/20 -z-10"></div>
+          <div class="absolute -top-4 -left-4 w-24 h-24 border-l-2 border-t-2 border-accent-gold/20 -z-10"></div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-label-caps text-accent-gold tracking-[0.2em] uppercase mb-4 block">Meet the Master</span>
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-6">Oleksandr Matlak (Sasha)</h2>
+          <div class="space-y-4 text-on-surface-variant font-body-md">
+            <p class="leading-relaxed">Oleksandr Matlak (Sasha) is an accomplished chess master and trainer from Kyiv,
+              Ukraine. He has been living in Wells, Somerset for three years, developing local talent and bringing
+              competitive chess to the region.</p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-accent-gold text-xl">military_tech</span>
+                <span><strong>Ratings:</strong> 2235 (FIDE), 2314 (English Chess Federation)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-accent-gold text-xl">workspace_premium</span>
+                <span>FIDE Arena Grand Master (2019) &amp; English National Master (2024)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-accent-gold text-xl">emoji_events</span>
+                <span>2-times Champion of Somerset (Frome 2023, 2024)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-accent-gold text-xl">trophy</span>
+                <span>Chess Champion of the West of England (Bristol, 2024)</span>
+              </li>
+            </ul>
+          </div>
+          <a class="mt-10 self-start px-8 py-3 border border-accent-gold text-accent-gold font-bold hover:bg-accent-gold hover:text-white transition-all duration-300 uppercase text-label-caps tracking-widest text-center"
+            href="#sessions">
+            Private Coaching
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sessions Section - Light Mode -->
+    <section class="py-24 bg-white scroll-reveal text-on-surface" id="sessions">
+      <div class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-2 gap-16 items-center">
+        <div class="order-2 md:order-1">
+          <span class="font-label-caps text-accent-gold tracking-widest mb-4 block uppercase">Personal Growth</span>
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-8">In-person & Online sessions</h2>
+          <div class="space-y-6 text-on-surface-variant font-body-md">
+            <p class="leading-relaxed">Sasha offers individual sessions online and in person for juniors, amateurs, and
+              club-level players. Working with a master is especially beneficial if your child is eager to enter
+              competitive chess leagues and junior tournaments.</p>
+            <div class="pt-4 p-6 bg-surface border border-outline-variant/30 rounded-lg">
+              <p class="font-bold text-on-surface mb-3">Lesson Duration Formats:</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-accent-gold rounded-full"></span> For younger juniors: 45 minutes
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-accent-gold rounded-full"></span> For strong juniors and adults: 1 - 2
+                  hours
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a href="#booking"
+            class="inline-block mt-12 px-8 py-4 bg-accent-gold text-surface-ebony font-bold hover:shadow-xl transition-all uppercase tracking-widest text-label-caps text-center">
+            Book a Trial Lesson
+          </a>
+        </div>
+        <div class="order-1 md:order-2">
+          <img alt="Chess Strategy Session"
+            class="w-full aspect-square object-cover shadow-2xl border-l-4 border-accent-gold" src="chess_session.jpg">
+        </div>
+      </div>
+    </section>
+
+    <!-- Clubs Section - Dark Backdrop / Image Overlay -->
+    <section class="py-24 relative overflow-hidden bg-cover bg-center scroll-reveal" id="clubs"
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD9ME4VaaT2wYWTXxWFUS4h-PlH31TW1TB8dG_F9vfuXXglzywsZ5ofcZhtwbOSo1j3RqXk-F5cIsnsRfSC4kh3MgopIIi9OUJsQtVgzZAcNekXkFeDJFLPf0CyA4tPkJbL0j55PyAlyxRIQuu_33VY8xlB4tmH7i26fkRs5TEMUSih1F3wnZ9qjAHkR4VqZlMwar-3J7EcejxdclTLK4RrEGx-UyDskUF27LAKKA2gktfRli7tDadgX1TzhxULcaGCG3BTSK_Aj_A');">
+      <div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+        <div class="text-center mb-16">
+          <span class="font-label-caps text-accent-gold tracking-widest uppercase mb-4 block">Somerset Chess
+            Community</span>
+          <h2 class="font-headline-md text-headline-md text-pure-white mb-4">Chess Clubs</h2>
+          <div class="h-1 w-24 bg-accent-gold mx-auto mb-6"></div>
+          <p class="text-pure-white/80 max-w-2xl mx-auto">Sasha organizes and hosts active chess clubs across Somerset,
+            building strong communities and fostering local intellectual development.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-gutter mb-16">
+          <div
+            class="bg-surface-ebony/80 border border-white/10 p-10 flex flex-col h-full rounded-lg backdrop-blur-sm hover-card-rise">
+            <h3 class="font-headline-sm text-headline-sm text-accent-gold mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined">diversity_3</span> Community Chess Clubs
+            </h3>
+            <div class="space-y-8 flex-grow">
+              <div class="border-l-2 border-accent-gold pl-6">
+                <h4 class="text-pure-white font-bold text-lg">Wells Junior Chess Club</h4>
+                <p class="text-pure-white/60 text-sm mt-1">The Globe Inn (22 Priest Row, Wells BA5 2PY)</p>
+                <p class="text-accent-gold font-bold mt-2">Every Wednesday</p>
+              </div>
+              <div class="border-l-2 border-accent-gold pl-6">
+                <h4 class="text-pure-white font-bold text-lg">Frome Junior Chess Club</h4>
+                <p class="text-pure-white/60 text-sm mt-1">Bennett Centre (St John's Church, Frome BA11 1PL)</p>
+                <p class="text-accent-gold font-bold mt-2">Every Tuesday: 16:45 - 17:45</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-surface-ebony/80 border border-white/10 p-10 flex flex-col h-full rounded-lg backdrop-blur-sm hover-card-rise">
+            <h3 class="font-headline-sm text-headline-sm text-accent-gold mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined">school</span> After-School Chess Clubs
+            </h3>
+            <div class="space-y-8 flex-grow">
+              <div class="border-l-2 border-accent-gold pl-6">
+                <h4 class="text-pure-white font-bold text-lg">Meare Primary School</h4>
+                <p class="text-pure-white/60 text-sm mt-1">St Mary's Rd, Meare, Glastonbury BA6 9SP</p>
+                <p class="text-accent-gold font-bold mt-2">Every Thursday: 15:15 - 16:15</p>
+              </div>
+              <div class="border-l-2 border-accent-gold pl-6">
+                <h4 class="text-pure-white font-bold text-lg">Axbridge CofE Academy</h4>
+                <p class="text-pure-white/60 text-sm mt-1">Moorland Street, Axbridge, BS26 2BA</p>
+                <p class="text-accent-gold font-bold mt-2">Every Friday: 15:15 - 16:15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-surface-ebony/40 border border-accent-gold/20 p-12 text-center max-w-4xl mx-auto rounded-lg backdrop-blur-sm">
+          <p class="text-pure-white/90 text-lg mb-6">Want to initiate a chess club at your school or local venue? If
+            situated within 20 miles of Wells, get in touch.</p>
+          <a class="inline-block px-10 py-4 bg-accent-gold text-surface-ebony font-bold hover:scale-105 transition-all duration-300 uppercase text-label-caps tracking-widest rounded shadow-md"
+            href="#contacts">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Camps Section - Light Mode -->
+    <section class="py-24 bg-white scroll-reveal text-on-surface" id="training">
+      <div class="max-w-container-max mx-auto px-margin-desktop grid md:grid-cols-[2fr_3fr] gap-16 items-start">
+        <div class="relative">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCckl1dzrosxnxd1ZxbCQlU18-HTB3O00C-p2DllhhbrB67h4s_pbcZrc92Kq86qPTYj7_kMab4fcLy-k120xSh1bzT8al-vvcYIxET7MaTKV64pW3xo3YJHWA5OL0ojIkjxLAjR_LEfsvGbzYDC065J5trbX323RPm49-qFO38qqM8jN5nemos9z066VoF2j9ptanND6O6rx_eC7IZpwfqJ09e-8P1uUWY87gHZ7r2zO2cOt0-NE9OK2EdAy6HIMrhj2P88Z3LX0lJHw"
+            alt="Professional chess master giving a lecture"
+            class="w-full h-full object-cover rounded-lg shadow-xl border border-outline-variant/30">
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="max-w-2xl">
+              <span class="font-label-caps text-accent-gold tracking-widest uppercase mb-4 block">Education &amp;
+                Events</span>
+              <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Training camps and lectures</h2>
+              <p class="text-on-surface-variant leading-relaxed">Sasha regularly hosts camps and lectures to improve
+                tournament preparation and share master-level opening theories.</p>
+            </div>
+            <div class="h-1 w-24 bg-accent-gold hidden md:block"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-surface border border-outline-variant/30 p-8 hover-card-rise rounded-lg">
+              <div class="text-accent-gold mb-6"><span class="material-symbols-outlined text-4xl">stadium</span></div>
+              <h3 class="text-on-surface font-bold text-lg mb-4">Bath Chess Club</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Delivering specialized chess lectures in
+                2025-2026, funded by the <a href="https://www.englishchess.org.uk/ecf-grassroots-initiative/"
+                  target="_blank" rel="noopener noreferrer" class="text-accent-gold hover:underline">Grassroot Support
+                  Programm by the English Chess Federation</a></p>
+            </div>
+            <div class="bg-surface border border-outline-variant/30 p-8 hover-card-rise rounded-lg">
+              <div class="text-accent-gold mb-6"><span class="material-symbols-outlined text-4xl">groups</span></div>
+              <h3 class="text-on-surface font-bold text-lg mb-4">Somerset Junior Team</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Coaching training camps in 2023-2026.
+                Structuring tactics for national titles.</p>
+            </div>
+            <div class="bg-surface border border-outline-variant/30 p-8 hover-card-rise rounded-lg">
+              <div class="text-accent-gold mb-6"><span
+                  class="material-symbols-outlined text-4xl">record_voice_over</span></div>
+              <h3 class="text-on-surface font-bold text-lg mb-4"><a href="https://www.trowbridgechessclub.co.uk/"
+                  target="_blank" rel="noopener noreferrer" class="hover:text-accent-gold transition-colors">Trowbridge
+                  Chess Club</a></h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Lectures covering midgame tactical patterns,
+                defensive strategy, and checkmate patterns.</p>
+            </div>
+            <div class="bg-surface border border-outline-variant/30 p-8 hover-card-rise rounded-lg">
+              <div class="text-accent-gold mb-6"><span class="material-symbols-outlined text-4xl">event</span></div>
+              <h3 class="text-on-surface font-bold text-lg mb-4"><a href="https://www.sedgemoorchess.com/"
+                  target="_blank" rel="noopener noreferrer" class="hover:text-accent-gold transition-colors">Sedgemoor
+                  Chess Club</a></h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed">Master training sessions followed by
+                competitive simultaneous exhibitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scheduler Booking Section - Premium Custom App Integration -->
+    <section class="py-24 bg-surface relative overflow-hidden scroll-reveal" id="booking">
+      <div class="absolute inset-0 board-pattern pointer-events-none"></div>
+      <div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+        <div class="text-center mb-16">
+          <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Take the Next Step</span>
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Book Your Chess Training Session</h2>
+          <div class="h-1 w-24 bg-accent-gold mx-auto mb-6"></div>
+          <p class="text-on-surface-variant max-w-2xl mx-auto">Select your training duration, choose an available date,
+            and book a time slot with coach Sasha.</p>
+        </div>
+
+        <!-- Booking Application Target Container -->
+        <div class="max-w-5xl mx-auto" id="booking-app-container">
+          <!-- Will be dynamically populated by app.js with the scheduler app -->
+          <div
+            class="w-full h-96 flex flex-col items-center justify-center p-12 text-center bg-surface-ebony/95 border border-white/10 rounded-xl">
+            <span class="material-symbols-outlined text-accent-gold text-64px mb-6 animate-pulse">calendar_month</span>
+            <p class="text-pure-white/80 font-body-lg mb-8">Loading Scheduler Application...</p>
+            <div class="w-12 h-12 border-4 border-accent-gold border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ambient Lights -->
+      <div
+        class="absolute top-0 right-0 w-96 h-96 bg-accent-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-accent-gold/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none">
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-24 bg-surface-ebony scroll-reveal" id="gallery">
+      <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="text-center mb-16">
+          <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Visual Moments</span>
+          <h2 class="font-headline-md text-headline-md text-pure-white mb-4">Gallery</h2>
+          <div class="h-1 w-24 bg-accent-gold mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div
+            class="aspect-square bg-black border border-white/10 overflow-hidden rounded shadow-inner group relative">
+            <img
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtU35ybQ9ymAvGQNQy_t5FbbyLnnp4BWpPMrTe98_vpJS8adds7nesLJqJtOSx146hytXobeMDqQQGFL_lY_NliWjYHZdl4kwarrY9f85seKvnMl2ttu79C0PACjjQ6V0OND6Qy4QyJTFKFYmhl00voCvUWaUaGgxtZnsfmXk_KGL3UaMXn4s-h-pH5LhkwNdVbyQT7MD6TisPjAY35gdcjbJ4uJok_3rF8L_yZleAg-6W27hZTV0JdObLVtVF0YZR42NIRcz8geg"
+              alt="Sasha lecturing Bath Chess Club members">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <p class="text-xs text-pure-white font-semibold uppercase tracking-wider">Bath Chess Lecture</p>
+            </div>
+          </div>
+          <div
+            class="aspect-square bg-black border border-white/10 overflow-hidden rounded shadow-inner group relative">
+            <img
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcMJP4Tpxg1SVyqHIYs2XxpIg1m8Yd4ohljZLWrby4tf_gL3dUrxr4UQgCbeyCqzyABhBTjaJg8P2nqxeF5S9CqkITrCbqLO2jLwItvyB7xjQATpFTZ0CyCAvJWLObqx-5Ovx_52SeOiDOJeIknjuktC3OgeE5iLDyzXk2rR2XzNpWcNmXcD3why5eReJjrgPkIY3OV7z1xMBF0C4qDHdt_hlV8TUSV9Bxf6BA-dZBGHL6nRRJUBjjgBeLQB1BBGdUl2t0AdNTDS8"
+              alt="Chess camp junior training match">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <p class="text-xs text-pure-white font-semibold uppercase tracking-wider">Junior Strategy Camp</p>
+            </div>
+          </div>
+          <div
+            class="aspect-square bg-black border border-white/10 overflow-hidden rounded shadow-inner group relative">
+            <img
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkyHXPWiv3t83DKgyBFdBQl7C1KOJN7yB8b38UwG8m1vR-GNAQsfw3VuMFV1xpfWnx8QNrDVSDpJzzVnLWN_olvpVvqUaWR0CuHvA2LCPj-ys6pZ3ZNbZFFfK1tkT5_hGnxERWD0l0tiTY0et7VTvW1cNEW0weonvcXwnffEeefVAU0tKpphHUJgdfl_Hc_BnJ4QrtbnSKexUNXmtv07sGuiBRgcPPO9_NtLzcN4XHE6Zud3zrZkHWxA1x18W4xgXTNjEd0Z-lcGQ"
+              alt="Chess club members reviewing match moves">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <p class="text-xs text-pure-white font-semibold uppercase tracking-wider">Wells Chess Club Review</p>
+            </div>
+          </div>
+          <div
+            class="aspect-square bg-black border border-white/10 overflow-hidden rounded shadow-inner group relative">
+            <img
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkCtbLc8AATYko5krAX6RGXp4egj4OW87g9-m984IYv2XRAATxIhA32kgkhZ1N3iHzUqgN_cLiVJnqB1n4iii7K7WJZRMfz2PNsIwwFs5NBDPPDtg-ZJXh6WMMv0bgcuXGVE5s84Gdunrj8M-6_5eK7zJmjZJcznjaIDM-s69GCrl3_qyascqKpEBjMNWkjTXmTZDPBO_M6YOhLIgvSaIQs8ZufzafKxonNgdSLWkdizxwi6eN-bt_objvp_6n7LvvW3aS_EJJqrw"
+              alt="Simultaneous chess game exhibition by Sasha">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+              <p class="text-xs text-pure-white font-semibold uppercase tracking-wider">Simultaneous Exhibition</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a class="inline-block px-8 py-3 border border-accent-gold text-accent-gold font-bold hover:bg-accent-gold hover:text-surface-ebony transition-all duration-300 uppercase text-label-caps tracking-widest"
+            href="#gallery">
+            View All Photos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials - Light Mode -->
+    <section class="py-24 bg-surface relative overflow-hidden scroll-reveal text-on-surface">
+      <div class="absolute inset-0 board-pattern pointer-events-none"></div>
+      <div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+        <div class="text-center mb-16">
+          <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Student Success</span>
+          <h2 class="font-headline-md text-headline-md text-on-surface mb-4">References from Parents</h2>
+          <div class="h-1 w-24 bg-accent-gold mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 border-l-4 border-accent-gold shadow-lg flex flex-col rounded-r-lg hover-card-rise">
+            <p class="text-on-surface-variant italic mb-6 flex-grow leading-relaxed">"For almost a year now, Sasha has
+              been teaching my 6-year-old son chess. The progress and pure excitement my son shows thanks to Sasha are
+              truly outstanding."</p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-accent-gold flex items-center justify-center font-bold text-surface-ebony rounded">S
+              </div>
+              <div>
+                <p class="font-bold text-on-surface text-sm">Sofiia</p>
+                <p class="text-xs text-on-surface-variant">Parent of Student</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 border-l-4 border-accent-gold shadow-lg flex flex-col rounded-r-lg hover-card-rise">
+            <p class="text-on-surface-variant italic mb-6 flex-grow leading-relaxed">"Sasha has been coaching my
+              8-year-old son for nearly a year... and we both strongly agree that he is an excellent, engaging, and
+              patient teacher!"</p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-accent-gold flex items-center justify-center font-bold text-surface-ebony rounded">C
+              </div>
+              <div>
+                <p class="font-bold text-on-surface text-sm">Chris</p>
+                <p class="text-xs text-on-surface-variant">Parent of Student</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 border-l-4 border-accent-gold shadow-lg flex flex-col rounded-r-lg hover-card-rise">
+            <p class="text-on-surface-variant italic mb-6 flex-grow leading-relaxed">"Sasha is an exceptional chess
+              tutor. Highly passionate, technical, and very inspiring. My son looks forward to his master sessions every
+              week."</p>
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 bg-accent-gold flex items-center justify-center font-bold text-surface-ebony rounded">S
+              </div>
+              <div>
+                <p class="font-bold text-on-surface text-sm">Stacie</p>
+                <p class="text-xs text-on-surface-variant">Parent of Student</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a class="inline-block px-8 py-3 border border-accent-gold text-accent-gold font-bold hover:bg-accent-gold hover:text-white transition-all duration-300 uppercase text-label-caps tracking-widest rounded"
+            href="https://www.superprof.co.uk/professional-ukrainian-coach-and-master-champion-somerset-champion-west-england-would-love-share-his-knowledge.html"
+            target="_blank" rel="noopener noreferrer">
+            View all reviews on Superprof
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer - Light Mode -->
+  <footer class="border-t bg-surface-ebony border-white/10 text-pure-white" id="contacts">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-margin-desktop py-16 max-w-container-max mx-auto">
+      <div class="space-y-4">
+        <div class="text-headline-sm font-headline-sm font-bold text-accent-gold">ChessWithSasha</div>
+        <p class="text-pure-white/60 text-sm leading-relaxed">Developing youth strategy, tactical thinking, and
+          competitive resilience. The premier destination for chess coaching in Somerset.</p>
+      </div>
+      <div class="space-y-4">
+        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Quick Links</h5>
+        <ul class="space-y-2 text-sm">
+          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#home">Home</a></li>
+          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#about">About me</a></li>
+          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#clubs">Chess Clubs</a></li>
+          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#sessions">Lessons</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Policies</h5>
+        <ul class="space-y-2 text-sm">
+          <li><a class="text-pure-white/60 hover:text-pure-white transition-colors" href="#">Privacy Policy</a></li>
+          <li><a class="text-pure-white/60 hover:text-pure-white transition-colors" href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Contacts</h5>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center gap-2 text-pure-white/60">
+            <span class="material-symbols-outlined text-accent-gold text-lg">mail</span>
+            <a href="mailto:oleksandr.matlak@gmail.com"
+              class="hover:text-accent-gold transition-colors">oleksandr.matlak@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-2 text-pure-white/60">
+            <span class="material-symbols-outlined text-accent-gold text-lg">call</span>
+            <a href="tel:+447553715617" class="hover:text-accent-gold transition-colors">+44 7553 715617</a>
+          </li>
+          <li class="flex items-center gap-2 text-pure-white/60">
+            <span class="material-symbols-outlined text-accent-gold text-lg">chat</span>
+            <span>+380 96 634 9667 (WhatsApp)</span>
+          </li>
+          <li class="flex items-center gap-2 text-pure-white/60">
+            <span class="material-symbols-outlined text-accent-gold text-lg">public</span>
+            <a class="hover:text-accent-gold transition-colors" href="https://www.facebook.com/alexander.matlak"
+              target="_blank" rel="noopener noreferrer">Facebook Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 py-6 px-margin-desktop text-center bg-surface-ebony/40">
+      <p class="text-pure-white/40 text-xs">© 2026 ChessWithSasha. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Application Logic JavaScript -->
+  <script src="app.js"></script>
+</body>
+
+</html>
