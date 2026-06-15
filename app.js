@@ -30,30 +30,31 @@ function initMobileMenu() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   initMobileMenu();
-});
-
-// Add DOMContentLoaded observer actions as secondary thread
-document.addEventListener('DOMContentLoaded', () => {
 
   // --- 2. Scroll Reveal Observer ---
   const revealElements = document.querySelectorAll('.scroll-reveal');
-
+  
   if (revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          revealObserver.unobserve(entry.target); // Reveal once
-        }
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback if IntersectionObserver is not supported
+      revealElements.forEach(el => el.classList.add('active'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target); // Reveal once
+          }
+        });
+      }, {
+        threshold: 0.02, // Lower threshold for extremely reliable trigger across viewports
+        rootMargin: '0px 0px -30px 0px'
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
 
-    revealElements.forEach(el => revealObserver.observe(el));
+      revealElements.forEach(el => revealObserver.observe(el));
+    }
   }
 
   // --- 3. Interactive Scheduler Application ---
@@ -61,7 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (bookingContainer) {
     initScheduler(bookingContainer);
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 /**
  * Initializes the Calendly scheduling calendar widget

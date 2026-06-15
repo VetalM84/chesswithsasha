@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initFooter() {
 const footerContainer = document.getElementById('shared-footer');
 if (footerContainer) {
 footerContainer.innerHTML = `
@@ -62,4 +62,10 @@ footerContainer.innerHTML = `
 </div>
 `;
 }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initFooter);
+} else {
+  initFooter();
+}

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initHeader() {
   const headerContainer = document.getElementById('shared-header');
   if (headerContainer) {
     headerContainer.innerHTML = `
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="index.html#sessions">In-person sessions</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="index.html#clubs">Chess Clubs</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="index.html#training">Camps</a>
-            <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="index.html#gallery">Gallery</a>
+            <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="gallery.html">Gallery</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap" href="index.html#contacts">Contacts</a>
           </div>
           
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="index.html#sessions">In-person sessions</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="index.html#clubs">Chess Clubs</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="index.html#training">Camps</a>
-            <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="index.html#gallery">Gallery</a>
+            <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="gallery.html">Gallery</a>
             <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="index.html#contacts">Contacts</a>
             <a href="index.html#booking" class="w-full mt-2 py-3 bg-accent-gold text-surface-ebony font-bold hover:bg-opacity-90 transition-all uppercase text-label-caps tracking-widest text-center block">
               Book Lesson
@@ -49,4 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       initMobileMenu();
     }
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeader);
+} else {
+  initHeader();
+}
