@@ -21,6 +21,8 @@
 
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="style.css">
+  <!-- Calendly Widget CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -124,68 +126,7 @@
 <body
   class="bg-background text-on-surface font-body-md selection:bg-accent-gold selection:text-white min-h-screen flex flex-col">
 
-  <!-- TopNavBar - Dark Theme Reverted -->
-  <header>
-    <nav class="fixed top-0 w-full bg-surface-ebony/90 backdrop-blur-md z-50 border-b border-white/10" id="main-nav">
-      <div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto relative">
-        <a class="text-headline-sm font-headline-sm font-bold text-accent-gold flex items-center gap-2" href="#home"
-          id="nav-brand">ChessWithSasha</a>
-
-        <!-- Desktop Nav Links -->
-        <div class="hidden xl:flex gap-6 items-center" id="nav-desktop-menu">
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#home">Home</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#about">About me</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#sessions">In-person sessions</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#clubs">Chess Clubs</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#training">Camps</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#gallery">Gallery</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md whitespace-nowrap"
-            href="#contacts">Contacts</a>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <a href="#booking"
-            class="hidden sm:inline-block px-6 py-2 bg-accent-gold text-surface-ebony font-bold hover:bg-opacity-90 transition-all duration-200 uppercase text-label-caps tracking-widest text-center"
-            id="nav-join-btn">
-            Book Lesson
-          </a>
-
-          <!-- Mobile Hamburger Button -->
-          <button id="mobile-menu-btn"
-            class="xl:hidden text-pure-white hover:text-accent-gold focus:outline-none flex items-center"
-            aria-expanded="false" aria-label="Toggle navigation menu">
-            <span class="material-symbols-outlined text-3xl">menu</span>
-          </button>
-        </div>
-
-        <!-- Mobile Nav Links Panel -->
-        <div id="nav-links-container"
-          class="hidden xl:hidden flex-col absolute top-full left-0 w-full bg-surface-ebony/95 border-b border-white/10 px-margin-desktop py-6 gap-4">
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#home">Home</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#about">About me</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#sessions">In-person
-            sessions</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#clubs">Chess
-            Clubs</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md" href="#training">Camps</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md"
-            href="#gallery">Gallery</a>
-          <a class="text-pure-white/90 hover:text-accent-gold transition-colors font-body-md"
-            href="#contacts">Contacts</a>
-          <a href="#booking"
-            class="w-full mt-2 py-3 bg-accent-gold text-surface-ebony font-bold hover:bg-opacity-90 transition-all uppercase text-label-caps tracking-widest text-center block">
-            Book Lesson
-          </a>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <header id="shared-header"></header>
 
   <main>
     <!-- Hero Section - Dark Theme Reverted -->
@@ -198,12 +139,12 @@
         </div>
       </div>
       <div
-        class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full grid md:grid-cols-2 gap-12 items-center">
+        class="relative z-10 max-w-container-max mx-auto px-margin-desktop w-full grid md:grid-cols-[1.3fr_0.7fr] gap-12 items-center">
         <div class="text-left scroll-reveal active">
           <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Grandmaster Status
             Awaits</span>
           <h1 class="font-display-lg text-display-lg text-pure-white mb-6 leading-tight">Private 1-on-1 Chess
-            <br><span class="text-accent-gold">Classes in Wells</span>
+            <br><span class="text-accent-gold">Classes in Somerset, UK</span>
           </h1>
           <p class="font-body-lg text-body-lg text-pure-white/80 mb-8 max-w-lg drop-shadow-md">
             Give your child the right foundation in chess. Apply for chess classes with coach Sasha
@@ -249,7 +190,13 @@
             <ul class="space-y-3">
               <li class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-accent-gold text-xl">military_tech</span>
-                <span><strong>Ratings:</strong> 2235 (FIDE), 2314 (English Chess Federation)</span>
+                <span><strong>Ratings:</strong> 2235 (<a target="_blank"
+                    href="https://ratings.fide.com/profile/148061879"
+                    class="text-accent-gold hover:underline">FIDE</a>),
+                  2314 (<a target="_blank" href="https://rating.englishchess.org.uk/players?ECF_code=356783H"
+                    class="text-accent-gold hover:underline">English
+                    Chess
+                    Federation</a>)</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-accent-gold text-xl">workspace_premium</span>
@@ -261,7 +208,9 @@
               </li>
               <li class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-accent-gold text-xl">trophy</span>
-                <span>Chess Champion of the West of England (Bristol, 2024)</span>
+                <span><a href="https://www.cornwallchess.org.uk/wecu/congress/champions.shtml" target="_blank"
+                    class="text-accent-gold hover:underline">Chess Champion of the West of England</a> (Bristol,
+                  2024)</span>
               </li>
             </ul>
           </div>
@@ -434,16 +383,16 @@
     <section class="py-24 bg-surface relative overflow-hidden scroll-reveal" id="booking">
       <div class="absolute inset-0 board-pattern pointer-events-none"></div>
       <div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
-        <div class="text-center mb-16">
+        <div class="text-center mb-6">
           <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block">Take the Next Step</span>
           <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Book Your Chess Training Session</h2>
-          <div class="h-1 w-24 bg-accent-gold mx-auto mb-6"></div>
+          <div class="h-1 w-24 bg-accent-gold mx-auto mb-4"></div>
           <p class="text-on-surface-variant max-w-2xl mx-auto">Select your training duration, choose an available date,
             and book a time slot with coach Sasha.</p>
         </div>
 
         <!-- Booking Application Target Container -->
-        <div class="max-w-5xl mx-auto" id="booking-app-container">
+        <div class="max-w-5xl mx-auto -mt-6" id="booking-app-container">
           <!-- Will be dynamically populated by app.js with the scheduler app -->
           <div
             class="w-full h-96 flex flex-col items-center justify-center p-12 text-center bg-surface-ebony/95 border border-white/10 rounded-xl">
@@ -596,60 +545,12 @@
     </section>
   </main>
 
-  <!-- Footer - Light Mode -->
-  <footer class="border-t bg-surface-ebony border-white/10 text-pure-white" id="contacts">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-margin-desktop py-16 max-w-container-max mx-auto">
-      <div class="space-y-4">
-        <div class="text-headline-sm font-headline-sm font-bold text-accent-gold">ChessWithSasha</div>
-        <p class="text-pure-white/60 text-sm leading-relaxed">Developing youth strategy, tactical thinking, and
-          competitive resilience. The premier destination for chess coaching in Somerset.</p>
-      </div>
-      <div class="space-y-4">
-        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Quick Links</h5>
-        <ul class="space-y-2 text-sm">
-          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#home">Home</a></li>
-          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#about">About me</a></li>
-          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#clubs">Chess Clubs</a></li>
-          <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="#sessions">Lessons</a></li>
-        </ul>
-      </div>
-      <div class="space-y-4">
-        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Policies</h5>
-        <ul class="space-y-2 text-sm">
-          <li><a class="text-pure-white/60 hover:text-pure-white transition-colors" href="#">Privacy Policy</a></li>
-          <li><a class="text-pure-white/60 hover:text-pure-white transition-colors" href="#">Terms of Service</a></li>
-        </ul>
-      </div>
-      <div class="space-y-4">
-        <h5 class="text-pure-white font-bold uppercase text-xs tracking-widest">Contacts</h5>
-        <ul class="space-y-3 text-sm">
-          <li class="flex items-center gap-2 text-pure-white/60">
-            <span class="material-symbols-outlined text-accent-gold text-lg">mail</span>
-            <a href="mailto:oleksandr.matlak@gmail.com"
-              class="hover:text-accent-gold transition-colors">oleksandr.matlak@gmail.com</a>
-          </li>
-          <li class="flex items-center gap-2 text-pure-white/60">
-            <span class="material-symbols-outlined text-accent-gold text-lg">call</span>
-            <a href="tel:+447553715617" class="hover:text-accent-gold transition-colors">+44 7553 715617</a>
-          </li>
-          <li class="flex items-center gap-2 text-pure-white/60">
-            <span class="material-symbols-outlined text-accent-gold text-lg">chat</span>
-            <span>+380 96 634 9667 (WhatsApp)</span>
-          </li>
-          <li class="flex items-center gap-2 text-pure-white/60">
-            <span class="material-symbols-outlined text-accent-gold text-lg">public</span>
-            <a class="hover:text-accent-gold transition-colors" href="https://www.facebook.com/alexander.matlak"
-              target="_blank" rel="noopener noreferrer">Facebook Profile</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-white/10 py-6 px-margin-desktop text-center bg-surface-ebony/40">
-      <p class="text-pure-white/40 text-xs">© 2026 ChessWithSasha. All rights reserved.</p>
-    </div>
-  </footer>
+  <footer class="border-t bg-surface-ebony border-white/10 text-pure-white" id="shared-footer"></footer>
 
   <!-- Application Logic JavaScript -->
+  <script src="header.js"></script>
+  <script src="footer.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
   <script src="app.js"></script>
 </body>
 
