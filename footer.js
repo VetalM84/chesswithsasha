@@ -18,9 +18,8 @@ footerContainer.innerHTML = `
           sessions</a></li>
       <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="index.html#clubs">Chess Clubs</a>
       </li>
-      <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="index.html#training">Chess
-          Camps</a></li>
-      <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="index.html#training">Lectures</a>
+      <li><a class="text-pure-white/60 hover:text-accent-gold transition-colors" href="index.html#training">Training
+          camps and lectures</a>
       </li>
     </ul>
   </div>
@@ -65,7 +64,7 @@ footerContainer.innerHTML = `
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initFooter);
+document.addEventListener('DOMContentLoaded', initFooter);
 } else {
-  initFooter();
+initFooter();
 }
