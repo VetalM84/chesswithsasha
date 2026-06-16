@@ -1,9 +1,9 @@
 function initGalleryPage() {
   // CONFIGURATION
-  // Replace 'vetalmit' with your actual Cloudinary Cloud Name
-  const cloudName = 'vetalmit';
+  // Мы вписываем ваш Cloud Name прямо в код - это абсолютно безопасно!
+  const cloudName = "dhsxzaqaa";
 
-  // 9 Gallery Sections matching your Google Drive folders
+  // 9 Gallery Sections matching your tags
   const categories = [
     {
       id: "chess-clubs",
@@ -100,9 +100,7 @@ function initGalleryPage() {
   // DOM Elements
   const sectionsContainer = document.getElementById('gallery-sections-container');
   const filtersContainer = document.getElementById('gallery-filters');
-  const setupGuide = document.getElementById('cloudinary-setup-guide');
-  const closeGuideBtn = document.getElementById('close-guide-btn');
-  
+
   // Lightbox Elements
   const lightboxModal = document.getElementById('lightbox-modal');
   const lightboxImage = document.getElementById('lightbox-image');
@@ -112,67 +110,55 @@ function initGalleryPage() {
   const lightboxNext = document.getElementById('lightbox-next');
 
   // State
-  let activeImages = []; // Stores URLs of currently visible images for Lightbox navigation
+  let activeImages = []; // Stores URLs and captions of currently visible images for Lightbox navigation
   let currentImageIndex = 0;
-  let showSetupGuide = true;
-
-  // Setup Guide Toggle
-  if (closeGuideBtn && setupGuide) {
-    closeGuideBtn.addEventListener('click', () => {
-      setupGuide.classList.add('hidden');
-      showSetupGuide = false;
-    });
-  }
-
-  // Check if Cloud Name is configured
-  const isPlaceholderCloud = (cloudName === 'YOUR_CLOUD_NAME');
 
   // Initialize and Render Filters dynamically
   function renderFilters() {
     if (!filtersContainer) return;
-    
+
     filtersContainer.innerHTML = '';
-    
+
     // Add "Show All" Button
     const showAllBtn = document.createElement('button');
     showAllBtn.setAttribute('data-filter', 'all');
     showAllBtn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
     showAllBtn.innerText = "Show All";
-    
+
     showAllBtn.addEventListener('click', () => {
       const filterButtons = filtersContainer.querySelectorAll('button');
       filterButtons.forEach(b => {
         b.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
       });
-      
+
       showAllBtn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
-      
+
       const sections = document.querySelectorAll('.gallery-section');
       sections.forEach(sec => sec.classList.remove('hidden'));
-      
+
       updateActiveImagesList();
     });
-    
+
     filtersContainer.appendChild(showAllBtn);
-    
+
     // Add Category Buttons
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.setAttribute('data-filter', cat.id);
       btn.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
       btn.innerText = cat.title;
-      
+
       btn.addEventListener('click', () => {
         const filterVal = btn.getAttribute('data-filter');
-        
+
         // Update active filter button state style
         const filterButtons = filtersContainer.querySelectorAll('button');
         filterButtons.forEach(b => {
           b.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
         });
-        
+
         btn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
-        
+
         // Show/Hide sections smoothly
         const sections = document.querySelectorAll('.gallery-section');
         sections.forEach(sec => {
@@ -182,111 +168,44 @@ function initGalleryPage() {
             sec.classList.add('hidden');
           }
         });
-        
+
         // Update active image list for Lightbox navigation
         updateActiveImagesList();
       });
-      
+
       filtersContainer.appendChild(btn);
     });
   }
 
-  // Initialize and Render Sections with alternating light/dark backgrounds
-  function initGallery() {
-    sectionsContainer.innerHTML = '';
-    
-    categories.forEach((cat, index) => {
-      const isLight = (index % 2 === 0);
-      
-      // Determine colors based on light vs dark section style
-      let bgClass, titleColor, descColor, badgeColor;
-      
-      if (isLight) {
-        // Alternating off-white (bg-surface) and pure white (bg-white)
-        const lightBg = (index % 4 === 0) ? 'bg-white' : 'bg-surface';
-        bgClass = `${lightBg} text-on-surface`;
-        titleColor = 'text-on-surface';
-        descColor = 'text-on-surface-variant';
-        badgeColor = 'text-on-surface-variant/50 border-black/10 bg-black/5';
-      } else {
-        // Alternating slate blue (bg-slate-depth) and standard black (bg-surface-ebony)
-        const darkBg = (index % 4 === 1) ? 'bg-surface-ebony' : 'bg-slate-depth';
-        bgClass = `${darkBg} text-pure-white`;
-        titleColor = 'text-pure-white';
-        descColor = 'text-pure-white/70';
-        badgeColor = 'text-pure-white/40 border-white/10 bg-white/5';
-      }
-      
-      // Create section element
-      const section = document.createElement('section');
-      section.id = cat.id;
-      section.className = `gallery-section ${bgClass} scroll-mt-28 w-full transition-all duration-300`;
-      
-      section.innerHTML = `
-        <div class="max-w-container-max mx-auto px-margin-desktop py-24">
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div class="max-w-2xl">
-              <h2 class="text-headline-sm font-headline-sm font-bold text-accent-gold mb-3">${cat.title}</h2>
-              <p class="${descColor} text-sm leading-relaxed">${cat.description}</p>
-            </div>
-            <span class="text-xs ${badgeColor} font-mono px-3 py-1 border rounded-full self-start md:self-auto select-none">Tag: ${cat.tag}</span>
-          </div>
-          
-          <!-- Image Grid -->
-          <div id="grid-${cat.id}" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <!-- Skeleton Loading -->
-            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
-            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
-            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
-          </div>
-        </div>
-      `;
-      
-      sectionsContainer.appendChild(section);
-      
-      // Load Images from Cloudinary or Fallback to Demo mode
-      if (isPlaceholderCloud) {
-        renderImages(cat, cat.demoImages, true, isLight);
-        if (setupGuide) setupGuide.classList.remove('hidden');
-      } else {
-        fetchCloudinaryImages(cat, isLight);
-      }
-    });
-  }
-
-  // Fetch from Cloudinary List API (requires "Resource list" security setting unchecked in dashboard)
-  function fetchCloudinaryImages(cat, isLight) {
+  // Fetch images for a category from Cloudinary List API
+  async function fetchCloudinaryImages(cat, isLight) {
     const listUrl = `https://res.cloudinary.com/${cloudName}/image/list/${cat.tag}.json`;
     
-    fetch(listUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Cloudinary returned ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.resources && data.resources.length > 0) {
-          // Construct secure https urls
-          const imageUrls = data.resources.map(img => {
-            // Apply scale transformation dynamically to optimize performance
-            return `https://res.cloudinary.com/${cloudName}/image/upload/w_1000,c_scale,q_auto,f_auto/v${img.version}/${img.public_id}.${img.format}`;
-          });
-          renderImages(cat, imageUrls, false, isLight);
-        } else {
-          // Empty resources array
-          renderImages(cat, cat.demoImages, true, isLight);
-        }
-      })
-      .catch(error => {
-        console.warn(`Could not load Cloudinary list for tag "${cat.tag}":`, error);
-        // Fallback to Unsplash Demo images on error
-        renderImages(cat, cat.demoImages, true, isLight);
-        // Show setup guide on fetch failure to help developer
-        if (showSetupGuide && setupGuide) {
-          setupGuide.classList.remove('hidden');
-        }
+    try {
+      const response = await fetch(listUrl);
+      if (!response.ok) {
+        throw new Error("List not found or tag is empty");
+      }
+      
+      const data = await response.json();
+      
+      // Transform the Cloudinary resources into thumbnail and full resolution URLs
+      const imageUrls = data.resources.map(res => {
+        return {
+          thumbnail: `https://res.cloudinary.com/${cloudName}/image/upload/w_400,c_scale/v${res.version}/${res.public_id}.${res.format}`,
+          full: `https://res.cloudinary.com/${cloudName}/image/upload/w_1200,c_scale/v${res.version}/${res.public_id}.${res.format}`
+        };
       });
+      
+      renderImages(cat, imageUrls, false, isLight);
+      
+    } catch (error) {
+      console.warn(`Could not load images for tag "${cat.tag}" (${error.message}). Falling back to demo images.`);
+      
+      // Use demo images
+      const demoUrls = cat.demoImages.map(url => ({ thumbnail: url, full: url }));
+      renderImages(cat, demoUrls, true, isLight);
+    }
   }
 
   // Render Image Cards inside Grid
@@ -306,13 +225,7 @@ function initGalleryPage() {
       return;
     }
     
-    urls.forEach((url, index) => {
-      // Build thumbnail image with lower width to speed up initial page load
-      let thumbnailUrl = url;
-      if (!isDemoMode) {
-        thumbnailUrl = url.replace('/w_1000,c_scale', '/w_400,c_scale');
-      }
-      
+    urls.forEach((urlObj, index) => {
       const card = document.createElement('div');
       
       // Apply different card background, border and shadows based on section lighting
@@ -323,8 +236,8 @@ function initGalleryPage() {
       }
       
       card.innerHTML = `
-        <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" 
-             src="${thumbnailUrl}" 
+        <img class="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" 
+             src="${urlObj.thumbnail}" 
              alt="${cat.title} Photo" 
              loading="lazy">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
@@ -334,11 +247,11 @@ function initGalleryPage() {
       `;
       
       // Store full url to card dataset for Lightbox
-      card.dataset.fullUrl = url;
+      card.dataset.fullUrl = urlObj.full;
       card.dataset.caption = `${cat.title} — Image ${index + 1}`;
       
       card.addEventListener('click', () => {
-        openLightbox(url, `${cat.title} — Image ${index + 1}`);
+        openLightbox(urlObj.full, `${cat.title} — Image ${index + 1}`);
       });
       
       grid.appendChild(card);
@@ -437,6 +350,64 @@ function initGalleryPage() {
       if (e.key === 'ArrowLeft') navigateLightbox(-1);
     }
   });
+
+  // Main Initialization
+  function initGallery() {
+    sectionsContainer.innerHTML = '';
+    
+    categories.forEach((cat, index) => {
+      const isLight = (index % 2 === 0);
+      
+      // Determine colors based on light vs dark section style
+      let bgClass, titleColor, descColor, badgeColor;
+      
+      if (isLight) {
+        // Alternating off-white (bg-surface) and pure white (bg-white)
+        const lightBg = (index % 4 === 0) ? 'bg-white' : 'bg-surface';
+        bgClass = `${lightBg} text-on-surface`;
+        titleColor = 'text-on-surface';
+        descColor = 'text-on-surface-variant';
+        badgeColor = 'text-on-surface-variant/50 border-black/10 bg-black/5';
+      } else {
+        // Alternating slate blue (bg-slate-depth) and standard black (bg-surface-ebony)
+        const darkBg = (index % 4 === 1) ? 'bg-surface-ebony' : 'bg-slate-depth';
+        bgClass = `${darkBg} text-pure-white`;
+        titleColor = 'text-pure-white';
+        descColor = 'text-pure-white/70';
+        badgeColor = 'text-pure-white/40 border-white/10 bg-white/5';
+      }
+      
+      // Create section element
+      const section = document.createElement('section');
+      section.id = cat.id;
+      section.className = `gallery-section ${bgClass} scroll-mt-28 w-full transition-all duration-300`;
+      
+      section.innerHTML = `
+        <div class="max-w-container-max mx-auto px-margin-desktop py-24">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div class="max-w-2xl">
+              <h2 class="text-headline-sm font-headline-sm font-bold text-accent-gold mb-3">${cat.title}</h2>
+              <p class="${descColor} text-sm leading-relaxed">${cat.description}</p>
+            </div>
+            <span class="text-xs ${badgeColor} font-mono px-3 py-1 border rounded-full self-start md:self-auto select-none">Tag: ${cat.tag}</span>
+          </div>
+          
+          <!-- Image Grid -->
+          <div id="grid-${cat.id}" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Skeleton Loading -->
+            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
+            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
+            <div class="aspect-video ${isLight ? 'bg-black/5 border-black/5' : 'bg-white/5 border-white/5'} border rounded animate-pulse"></div>
+          </div>
+        </div>
+      `;
+      
+      sectionsContainer.appendChild(section);
+      
+      // Trigger API fetch for this section
+      fetchCloudinaryImages(cat, isLight);
+    });
+  }
 
   // Run Initialization
   renderFilters();

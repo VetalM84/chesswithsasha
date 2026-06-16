@@ -123,7 +123,8 @@
     <div class="relative py-24 bg-surface-ebony border-b border-white/10">
       <div class="max-w-container-max mx-auto px-margin-desktop relative z-10 text-center">
         <!-- Hero Intro -->
-        <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block font-bold">Visual Gallery</span>
+        <span class="font-label-caps text-accent-gold tracking-[0.3em] uppercase mb-4 block font-bold">Visual
+          Gallery</span>
         <h1 class="font-display-lg text-display-lg text-pure-white mb-6 leading-tight">Chess Life & Highlights</h1>
         <div class="h-1 w-24 bg-accent-gold mx-auto mb-6"></div>
         <p class="font-body-lg text-body-lg text-pure-white/80 max-w-2xl mx-auto mb-12 drop-shadow-md">
@@ -136,18 +137,31 @@
         </div>
 
         <!-- Cloudinary Instruction Box -->
-        <div id="cloudinary-setup-guide" class="hidden max-w-3xl mx-auto p-6 bg-slate-depth/50 border border-accent-gold/20 rounded-lg text-sm text-pure-white/95 text-left relative">
+        <div id="cloudinary-setup-guide"
+          class="hidden max-w-3xl mx-auto p-6 bg-slate-depth/50 border border-accent-gold/20 rounded-lg text-sm text-pure-white/95 text-left relative">
           <button id="close-guide-btn" class="absolute top-3 right-3 text-pure-white/40 hover:text-accent-gold">
             <span class="material-symbols-outlined text-xl">close</span>
           </button>
           <h4 class="font-bold text-accent-gold uppercase tracking-wider mb-2 flex items-center gap-2">
             <span class="material-symbols-outlined text-lg">info</span> Cloudinary Setup Required
           </h4>
-          <p class="mb-3">To automatically pull your photos, this page connects directly to your Cloudinary account. Please ensure:</p>
+          <p class="mb-3">To automatically pull your photos, this page connects directly to your Cloudinary account.
+            Please ensure:</p>
           <ol class="list-decimal pl-5 space-y-2 mb-3 text-pure-white/80">
-            <li>You set your Cloudinary cloud name in <code class="bg-black/30 px-1.5 py-0.5 rounded text-accent-gold font-mono">gallery.js</code>.</li>
-            <li>In your Cloudinary Dashboard under <strong>Settings &gt; Security</strong>, disable/uncheck the <strong>"Restrict API access - Resource list"</strong> option.</li>
-            <li>Tag uploaded images with any of these 9 tags: <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">chess-clubs</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">chess-player</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">events</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">lectures</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">references</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">somerset-media</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">students</code>, <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">teams</code>, or <code class="bg-black/30 px-1 py-0.5 rounded text-white/90">with-top-players</code>.</li>
+            <li>You set your Cloudinary cloud name in <code
+                class="bg-black/30 px-1.5 py-0.5 rounded text-accent-gold font-mono">gallery.js</code>.</li>
+            <li>In your Cloudinary Dashboard under <strong>Settings &gt; Security</strong>, disable/uncheck the
+              <strong>"Restrict API access - Resource list"</strong> option.</li>
+            <li>Tag uploaded images with any of these 9 tags: <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">chess-clubs</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">chess-player</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">events</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">lectures</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">references</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">somerset-media</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">students</code>, <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">teams</code>, or <code
+                class="bg-black/30 px-1 py-0.5 rounded text-white/90">with-top-players</code>.</li>
           </ol>
         </div>
       </div>
@@ -162,25 +176,30 @@
   <footer class="border-t bg-surface-ebony border-white/10 text-pure-white" id="shared-footer"></footer>
 
   <!-- Lightbox Modal -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4">
+  <div id="lightbox-modal"
+    class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden items-center justify-center p-4">
     <!-- Close Button -->
-    <button id="lightbox-close" class="absolute top-6 right-6 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
+    <button id="lightbox-close"
+      class="absolute top-6 right-6 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
       <span class="material-symbols-outlined text-4xl">close</span>
     </button>
-    
+
     <!-- Prev Button -->
-    <button id="lightbox-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
+    <button id="lightbox-prev"
+      class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
       <span class="material-symbols-outlined text-5xl">chevron_left</span>
     </button>
-    
+
     <!-- Next Button -->
-    <button id="lightbox-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
+    <button id="lightbox-next"
+      class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-pure-white/70 hover:text-accent-gold focus:outline-none transition-colors duration-200 z-50">
       <span class="material-symbols-outlined text-5xl">chevron_right</span>
     </button>
 
     <!-- Content Wrapper -->
     <div class="max-w-5xl max-h-[80vh] w-full flex flex-col items-center justify-center relative select-none">
-      <img id="lightbox-image" src="" alt="Enlarged gallery view" class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl transition-all duration-300 transform scale-95">
+      <img id="lightbox-image" src="" alt="Enlarged gallery view"
+        class="max-w-full max-h-[75vh] object-contain rounded shadow-2xl transition-all duration-300 transform scale-95">
       <div id="lightbox-caption" class="text-pure-white/80 text-sm mt-4 text-center font-semibold tracking-wide"></div>
     </div>
   </div>
