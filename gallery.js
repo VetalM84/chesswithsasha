@@ -192,8 +192,8 @@ function initGalleryPage() {
       // Transform the Cloudinary resources into thumbnail and full resolution URLs
       const imageUrls = data.resources.map(res => {
         return {
-          thumbnail: `https://res.cloudinary.com/${cloudName}/image/upload/w_400,c_scale/v${res.version}/${res.public_id}.${res.format}`,
-          full: `https://res.cloudinary.com/${cloudName}/image/upload/w_1200,c_scale/v${res.version}/${res.public_id}.${res.format}`
+          thumbnail: `https://res.cloudinary.com/${cloudName}/image/upload/w_400,c_scale/v${res.version}/${res.public_id}.jpg`,
+          full: `https://res.cloudinary.com/${cloudName}/image/upload/w_1200,c_scale/v${res.version}/${res.public_id}.jpg`
         };
       });
 
