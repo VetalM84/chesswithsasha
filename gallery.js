@@ -191,9 +191,17 @@ function initGalleryPage() {
 
       // Transform the Cloudinary resources into thumbnail and full resolution URLs
       const imageUrls = data.resources.map(res => {
+        // Extract filename from public_id (e.g., "somerset-chess/my-photo-name" -> "my-photo-name")
+        const filename = res.public_id.split('/').pop();
+        // Replace dashes and underscores with spaces, capitalize words
+        const formattedTitle = filename
+          .replace(/[_-]/g, ' ')
+          .replace(/\b\w/g, c => c.toUpperCase());
+
         return {
           thumbnail: `https://res.cloudinary.com/${cloudName}/image/upload/w_400,c_scale/v${res.version}/${res.public_id}.jpg`,
-          full: `https://res.cloudinary.com/${cloudName}/image/upload/w_1200,c_scale/v${res.version}/${res.public_id}.jpg`
+          full: `https://res.cloudinary.com/${cloudName}/image/upload/w_1200,c_scale/v${res.version}/${res.public_id}.jpg`,
+          title: formattedTitle
         };
       });
 
@@ -203,7 +211,11 @@ function initGalleryPage() {
       console.warn(`Could not load images for tag "${cat.tag}" (${error.message}). Falling back to demo images.`);
 
       // Use demo images
-      const demoUrls = cat.demoImages.map(url => ({ thumbnail: url, full: url }));
+      const demoUrls = cat.demoImages.map(url => ({ 
+        thumbnail: url, 
+        full: url,
+        title: ''
+      }));
       renderImages(cat, demoUrls, true, isLight);
     }
   }
@@ -235,23 +247,25 @@ function initGalleryPage() {
         card.className = "aspect-video bg-black border border-white/10 overflow-hidden rounded shadow-inner group relative cursor-pointer hover:border-accent-gold transition-all duration-300 transform hover:-translate-y-1.5";
       }
 
+      const displayTitle = urlObj.title || `${cat.title} — Image ${index + 1}`;
+
       card.innerHTML = `
         <img class="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-105" 
              src="${urlObj.thumbnail}" 
-             alt="${cat.title} Photo" 
+             alt="${displayTitle}" 
              loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-          <span class="text-xs text-accent-gold font-bold uppercase tracking-wider">${cat.title}</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-4">
+          <span class="text-xs text-accent-gold font-bold uppercase tracking-wider">${displayTitle}</span>
           ${isDemoMode ? '<span class="text-[9px] text-pure-white/40">Demo Placeholder</span>' : ''}
         </div>
       `;
 
       // Store full url to card dataset for Lightbox
       card.dataset.fullUrl = urlObj.full;
-      card.dataset.caption = `${cat.title} — Image ${index + 1}`;
+      card.dataset.caption = displayTitle;
 
       card.addEventListener('click', () => {
-        openLightbox(urlObj.full, `${cat.title} — Image ${index + 1}`);
+        openLightbox(urlObj.full, displayTitle);
       });
 
       grid.appendChild(card);
