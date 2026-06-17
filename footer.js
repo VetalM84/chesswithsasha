@@ -1,7 +1,7 @@
 function initFooter() {
-const footerContainer = document.getElementById('shared-footer');
-if (footerContainer) {
-footerContainer.innerHTML = `
+  const footerContainer = document.getElementById('shared-footer');
+  if (footerContainer) {
+    footerContainer.innerHTML = `
 <div id="contacts" class="grid grid-cols-1 md:grid-cols-4 gap-12 px-margin-desktop py-16 max-w-container-max mx-auto">
   <div class="space-y-4">
     <div class="text-headline-sm font-headline-sm font-bold text-accent-gold">ChessWithSasha</div>
@@ -57,14 +57,14 @@ footerContainer.innerHTML = `
   </div>
 </div>
 <div class="border-t border-white/10 py-6 px-margin-desktop text-center bg-surface-ebony/40">
-  <p class="text-pure-white/40 text-xs">© 2026 ChessWithSasha. All rights reserved. Registered in the UK</p>
+  <p class="text-pure-white/40 text-xs">© 2026 ChessWithSasha. Registered in the UK. DBS checked</p>
 </div>
 `;
-}
+  }
 }
 
 if (document.readyState === 'loading') {
-document.addEventListener('DOMContentLoaded', initFooter);
+  document.addEventListener('DOMContentLoaded', initFooter);
 } else {
-initFooter();
+  initFooter();
 }
