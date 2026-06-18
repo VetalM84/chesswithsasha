@@ -113,35 +113,13 @@ function initGalleryPage() {
   let activeImages = []; // Stores URLs and captions of currently visible images for Lightbox navigation
   let currentImageIndex = 0;
 
-  // Initialize and Render Filters dynamically
+  // Initialize and Render Filters dynamically as Anchor links
   function renderFilters() {
     if (!filtersContainer) return;
 
     filtersContainer.innerHTML = '';
 
-    // Add "Show All" Button
-    const showAllBtn = document.createElement('button');
-    showAllBtn.setAttribute('data-filter', 'all');
-    showAllBtn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
-    showAllBtn.innerText = "Show All";
-
-    showAllBtn.addEventListener('click', () => {
-      const filterButtons = filtersContainer.querySelectorAll('button');
-      filterButtons.forEach(b => {
-        b.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
-      });
-
-      showAllBtn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
-
-      const sections = document.querySelectorAll('.gallery-section');
-      sections.forEach(sec => sec.classList.remove('hidden'));
-
-      updateActiveImagesList();
-    });
-
-    filtersContainer.appendChild(showAllBtn);
-
-    // Add Category Buttons
+    // Add Category Buttons for Anchor scrolling
     categories.forEach(cat => {
       const btn = document.createElement('button');
       btn.setAttribute('data-filter', cat.id);
@@ -149,32 +127,40 @@ function initGalleryPage() {
       btn.innerText = cat.title;
 
       btn.addEventListener('click', () => {
-        const filterVal = btn.getAttribute('data-filter');
-
-        // Update active filter button state style
-        const filterButtons = filtersContainer.querySelectorAll('button');
-        filterButtons.forEach(b => {
-          b.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
-        });
-
-        btn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg";
-
-        // Show/Hide sections smoothly
-        const sections = document.querySelectorAll('.gallery-section');
-        sections.forEach(sec => {
-          if (sec.id === filterVal) {
-            sec.classList.remove('hidden');
-          } else {
-            sec.classList.add('hidden');
-          }
-        });
-
-        // Update active image list for Lightbox navigation
-        updateActiveImagesList();
+        const targetSection = document.getElementById(cat.id);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
       });
 
       filtersContainer.appendChild(btn);
     });
+
+    // Intersection Observer to highlight active section in viewport
+    const observerOptions = {
+      root: null,
+      rootMargin: '-30% 0px -55% 0px', // Trigger when section is in the middle of the screen
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const activeId = entry.target.id;
+          const buttons = filtersContainer.querySelectorAll('button');
+          buttons.forEach(btn => {
+            if (btn.getAttribute('data-filter') === activeId) {
+              btn.className = "px-5 py-2.5 rounded bg-accent-gold text-surface-ebony font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-lg scale-105";
+            } else {
+              btn.className = "px-5 py-2.5 rounded border border-white/15 hover:border-accent-gold/50 text-pure-white/80 hover:text-accent-gold font-semibold text-xs uppercase tracking-wider transition-all duration-200";
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Expose observer locally in window so initGallery can start observing
+    window._gallerySectionObserver = observer;
   }
 
   // Fetch images for a category from Cloudinary List API
@@ -417,6 +403,11 @@ function initGalleryPage() {
       `;
 
       sectionsContainer.appendChild(section);
+
+      // Connect section to scroll observer
+      if (window._gallerySectionObserver) {
+        window._gallerySectionObserver.observe(section);
+      }
 
       // Trigger API fetch for this section
       fetchCloudinaryImages(cat, isLight);
