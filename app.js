@@ -80,7 +80,7 @@ function initScheduler(container) {
   container.style.minHeight = '700px';
 
   // PLACEHOLDER: Replace this URL with your actual Calendly event/profile URL
-  const calendlyUrl = 'https://calendly.com/vetalmit/30min';
+  const calendlyUrl = 'https://calendly.com/chesswithsasha';
 
   function loadWidget() {
     if (typeof Calendly !== 'undefined') {
